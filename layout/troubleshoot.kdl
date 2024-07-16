@@ -1,0 +1,21 @@
+layout { 
+  pane size=1 borderless=true { 
+    plugin location="tab-bar"
+  }
+  pane command="bash" name="Controller 1"{
+    args "-c" "sshpass -p rootpassword ssh -o StrictHostKeyChecking=no root@localhost -p 2222"
+  }
+  pane split_direction="vertical" { 
+    pane command="bash" name="Controller 2" {
+    args "-c" "sshpass -p rootpassword ssh -o StrictHostKeyChecking=no root@localhost -p 2222"
+    }
+    pane command="bash" name="Controller 3"{
+    args "-c" "sshpass -p rootpassword ssh -o StrictHostKeyChecking=no root@localhost -p 2222 -t htop"
+    }
+
+  }
+  pane size=2 borderless=true {
+    plugin location="status-bar"
+  }
+}
+
